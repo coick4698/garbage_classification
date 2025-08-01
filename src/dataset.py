@@ -13,7 +13,7 @@ def get_dataloaders(data_dir, batch_size=32, val_split=0.2, image_size=224, use_
         use_small (bool): True면 클래스별 small_ratio 비율만 샘플링
     """
 
-    # ImageNet 기반 전처리
+    # Preprocessing based on ImageNet
     train_transform = transforms.Compose([
         transforms.Resize((image_size, image_size)),
         transforms.RandomHorizontalFlip(),
@@ -30,7 +30,6 @@ def get_dataloaders(data_dir, batch_size=32, val_split=0.2, image_size=224, use_
                             [0.229, 0.224, 0.225])
     ])
 
-    # 전체 데이터셋 로드
     full_dataset = datasets.ImageFolder(root=data_dir, transform=train_transform)
     class_names = full_dataset.classes
 
@@ -53,7 +52,6 @@ def get_dataloaders(data_dir, batch_size=32, val_split=0.2, image_size=224, use_
     train_size = len(full_dataset) - val_size
     train_dataset, val_dataset = random_split(full_dataset, [train_size, val_size], generator=torch.Generator().manual_seed(seed))
 
-    # validation에는 val_transform 적용
     if isinstance(val_dataset.dataset, Subset):
         val_dataset.dataset.dataset.transform = val_transform
     else:
