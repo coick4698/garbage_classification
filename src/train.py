@@ -1,5 +1,3 @@
-# 학습 루프 및 시각화
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -50,6 +48,6 @@ def train_model(model, train_loader, val_loader, num_epochs=10, learning_rate=0.
         val_acc = correct / total
         val_acc_list.append(val_acc)
 
-        print(f"Epoch [{epoch+1}/{num_epochs}] Train Acc: {train_acc:.4f}, Val Acc: {val_acc*100:.2f}%")
+        print(f"Epoch [{epoch+1}/{num_epochs}] Train Acc: {train_acc*100:.2f}%, Val Acc: {val_acc*100:.2f}%")
 
     return train_acc_list, val_acc_list
