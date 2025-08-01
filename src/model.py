@@ -1,4 +1,3 @@
-# 모델 정의
 import torch.nn as nn
 from torchvision import models
 
