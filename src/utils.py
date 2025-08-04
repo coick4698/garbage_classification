@@ -3,6 +3,7 @@ import torch
 import numpy as np
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
 
 def plot_accuracy(train_acc, val_acc, title="Accuracy Curve"):
     plt.plot(train_acc, label='Train')
@@ -36,3 +37,27 @@ def plot_confusion_matrix(model, val_loader, class_names, device='cuda'):
     plt.xlabel("Predicted")
     plt.ylabel("True")
     plt.show()
+
+
+def evaluate_test_accuracy(model, test_loader, device):
+    model.eval()
+    y_true, y_pred = [], []
+
+    with torch.no_grad():
+        for images, labels in test_loader:
+            images, labels = images.to(device), labels.to(device)
+            outputs = model(images)
+            _, preds = torch.max(outputs, 1)
+            y_true.extend(labels.cpu().numpy())
+            y_pred.extend(preds.cpu().numpy())
+
+    acc = accuracy_score(y_true, y_pred)
+    print(f"Test Accuracy: {acc:.4f}")
+    return acc, y_true, y_pred
+
+
+def evaluate_and_plot(model, test_loader, class_names, device):
+    acc, y_true, y_pred = evaluate_test_accuracy(model, test_loader, device)
+    plot_confusion_matrix(y_true, y_pred, class_names)
+    return acc
+
