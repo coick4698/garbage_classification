@@ -8,7 +8,7 @@ As the world faces growing environmental concerns, efficient waste separation is
 
 ## 🎯 Objectives
 
-* Classify garbage images into categories: cardboard, glass, metal, paper, plastic, trash
+* Classify garbage images into categories: cardboard, glass, metal, paper, plastic, trash...
 * Train and evaluate CNN-based models on real-world image data
 * Improve model performance through data augmentation and transfer learning
 * Visualize model predictions and attention areas using techniques like Grad-CAM
@@ -18,8 +18,8 @@ As the world faces growing environmental concerns, efficient waste separation is
 ## 🗓️ Timeline (4 weeks)
 | Week | Tasks |
 |------|-------|
-| 1 | Topic confirmation, dataset selection (garbage_classification), related papers review |
-| 2 | Model setup (CNN / Transfer Learning), data preprocessing |
+| 1 | Topic confirmation, dataset selection, related papers review |
+| 2 | Model setup (CNN - MobilenetV2), data preprocessing |
 | 3 | Training, evaluation, visualization |
 | 4 | Paper writing (Overleaf), GitHub final polish |
 
@@ -27,18 +27,28 @@ As the world faces growing environmental concerns, efficient waste separation is
 ```
 Garbage-Classifier/
 ├── data/
-├── models/
+├── src/
+      ├── dataset.py
+      ├── model.py
+      ├── train.py
+      └── utils.py
 ├── notebooks/
+      ├── baseline_experiment.ipynb
+      └── customised_experiment.ipynb
 ├── paper/
+├── requirements.txt
 └── README.md
 ```
 ## 📁 Dataset
 - https://www.kaggle.com/datasets/mostafaabla/garbage-classification/data
-- Classes: battery, biological, brown-glass, cardboard, clothes, green-glass, metal, paper, plastic, shoes, trash, white-glass
-- ~2,500 labeled images
+- 12 Classes: battery, biological, brown-glass, cardboard, clothes, green-glass, metal, paper, plastic, shoes, trash, white-glass
+- ~9,933 labeled images
 
 ## 🧠 Models
-- (need advice)
+- MobileNetV2
+- DenseNet121
+- Squeezenet
+- ShufflenetV2
 
 ## 📊 Metrics
 - Accuracy, Precision, Recall, F1-Score
@@ -47,7 +57,7 @@ Garbage-Classifier/
 
 ## 📄 Tools
 - Google Colab as Editor
-- Python, PyTorch, scikit-learn, TensorFlow for research and experiment
+- Python, PyTorch, scikit-learn for research and experiment
 - Jupyter Notebook, Matplotlib for visualisation
 - Overleaf (LaTeX) for research paper
 
