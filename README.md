@@ -36,8 +36,7 @@ Garbage-Classifier/
       ├── train.py
       └── utils.py
 ├── Garbage_Classification.pdf
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 ## 📁 Dataset
 - https://www.kaggle.com/datasets/mostafaabla/garbage-classification/data
