@@ -26,18 +26,18 @@ As the world faces growing environmental concerns, efficient waste separation is
 ## 🗄️ Structure
 ```
 Garbage-Classifier/
-├── data/
+├── notebooks/
+      ├── baseline.ipynb
+      ├── customised_experiment.ipynb
+      └── small_dataset.ipynb
 ├── src/
       ├── dataset.py
       ├── model.py
       ├── train.py
       └── utils.py
-├── notebooks/
-      ├── baseline_experiment.ipynb
-      └── customised_experiment.ipynb
-├── paper/
-├── requirements.txt
-└── README.md
+├── Garbage_Classification.pdf
+├── README.md
+└── requirements.txt
 ```
 ## 📁 Dataset
 - https://www.kaggle.com/datasets/mostafaabla/garbage-classification/data
@@ -53,7 +53,6 @@ Garbage-Classifier/
 ## 📊 Metrics
 - Accuracy, Precision, Recall, F1-Score
 - Class-wise evaluation
-- Grad-CAM for visual interpretation of predictions
 
 ## 📄 Tools
 - Google Colab as Editor
